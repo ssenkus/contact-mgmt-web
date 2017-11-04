@@ -18,13 +18,17 @@ contactMgmtApp.controller('ContactListCtrl', ['$scope', '$location', 'contactsRe
             $location.url('contacts/create');
         };
 
+        $scope.editContact = function (contact) {
+            $location.url('contacts/' + contact._id);
+        }
+
         $scope.deleteContact = function (contact) {
             // TODO: add a confirm before deleting...
             contactsRepo.deleteContact(contact._id)
                 .then(function () {
                     removeContactFromCollection(contact);
                 }, function () {
-                    alert('error')
+                    alert('error');
                 });
         }
 

@@ -8,6 +8,9 @@ contactMgmtApp.factory('contactsRepository', ['$http', function($http) {
         getAllContacts: function () {
             return $http.get(CONTACTS_API_URL);
         },
+        getContactById: function (contactId) {
+            return $http.get(CONTACTS_API_URL + '/' + contactId);
+        },
         deleteContact: function (contactId) {
             return $http.delete(CONTACTS_API_URL + '/' + contactId);
         }
