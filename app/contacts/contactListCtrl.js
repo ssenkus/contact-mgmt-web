@@ -18,5 +18,24 @@ contactMgmtApp.controller('ContactListCtrl', ['$scope', '$location', 'contactsRe
             $location.url('contacts/create');
         };
 
-   }
+        $scope.deleteContact = function (contact) {
+            // TODO: add a confirm before deleting...
+            contactsRepo.deleteContact(contact._id)
+                .then(function () {
+                    removeContactFromCollection(contact);
+                }, function () {
+                    alert('error')
+                });
+        }
+
+
+        function removeContactFromCollection(contact) {
+            var index = $scope.m.contacts.indexOf(contact);
+            if (index !== -1) {
+                $scope.m.contacts.splice(index, 1);
+            } else {
+                throw new Error('Could not find deleted contact in list!');
+            }
+        }
+    }
 ]);
