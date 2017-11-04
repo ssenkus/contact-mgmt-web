@@ -4,6 +4,9 @@ contactMgmtApp.factory('contactsRepository', ['$http', function($http) {
     return {
         createContact: function(postData) {
             return $http.post(CONTACTS_API_URL, postData);
+        },
+        getAllContacts: function () {
+            return $http.get(CONTACTS_API_URL);
         }
     };
 
