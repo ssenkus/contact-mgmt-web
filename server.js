@@ -1,8 +1,3 @@
-var express = require('express')
-var app = express()
+const webProcess = require('./lib/runtime/webProcess.js');
 
-app.get('/', function (req, res) {
-    res.send('Hello Worlsdfsdfd')
-})
-
-app.listen(3000)
+webProcess.start();
