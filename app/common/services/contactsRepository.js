@@ -11,6 +11,9 @@ contactMgmtApp.factory('contactsRepository', ['$http', function($http) {
         getContactById: function (contactId) {
             return $http.get(CONTACTS_API_URL + '/' + contactId);
         },
+        updateContact: function(contact) {
+            return $http.put(CONTACTS_API_URL + '/' + contact._id, contact);
+        },
         deleteContact: function (contactId) {
             return $http.delete(CONTACTS_API_URL + '/' + contactId);
         }

@@ -1,6 +1,7 @@
 contactMgmtApp.controller('ContactDetailCtrl', ['$scope', '$location', '$routeParams', 'contactsRepository',
     function ($scope, $location, $routeParams, contactsRepo) {
         $scope.m = {
+            _id: null,
             firstName: null,
             lastName: null,
             emailAddress: null
@@ -10,13 +11,21 @@ contactMgmtApp.controller('ContactDetailCtrl', ['$scope', '$location', '$routePa
             var contactId = $routeParams.contactId;
             contactsRepo.getContactById(contactId)
                 .then(function (response) {
-                    console.log(response)
                     _.extend($scope.m, response.data.contact[0]);
-                    console.log($scope.m);
                 }, function () {
                     alert('error');
                 });
         };
 
+        $scope.updateContact = function () {
+
+            contactsRepo.updateContact($scope.m)
+                .then(function (data) {
+                    $location.url('contacts');
+                }, function () {
+                    alert('error');
+                });
+        };
+        
     }
 ]);
