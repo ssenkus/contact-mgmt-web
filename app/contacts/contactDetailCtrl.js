@@ -26,6 +26,6 @@ contactMgmtApp.controller('ContactDetailCtrl', ['$scope', '$location', '$routePa
                     alert('error');
                 });
         };
-        
+
     }
 ]);
