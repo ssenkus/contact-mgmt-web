@@ -1,4 +1,22 @@
-<div ng-controller="ContactListCtrl">
-    <h4>this will be a list of contacts</h4>
-    <button class="btn btn-info" ng-click="createNewContact()">Create new contact</button>
+<div ng-controller="ContactListCtrl" ng-init="initialize()">
+    <button class="btn btn-info pull-right" ng-click="createNewContact()">Create new contact</button>
+    <table class="table table-striped">
+        <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contact in m.contacts">
+                <td>{{contact.firstName}}</td>
+                <td>{{contact.lastName}}</td>
+                <td>{{contact.emailAddress}}</td>
+                <td>
+                    <button class="btn btn-warning">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
