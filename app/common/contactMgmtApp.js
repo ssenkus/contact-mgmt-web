@@ -16,6 +16,9 @@ contactMgmtApp.config(['$routeProvider',
             .when('/contacts/:contactId', {
                 templateUrl: '/app/contacts/viewContact.html'
             })
+            .when('/dev-settings', {
+                templateUrl: '/app/dev-settings/devSettings.html'
+            })
             .otherwise({
                 template: '<div>Unknown route!!</div>'
             });

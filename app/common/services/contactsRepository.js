@@ -16,6 +16,9 @@ contactMgmtApp.factory('contactsRepository', ['$http', function($http) {
         },
         deleteContact: function (contactId) {
             return $http.delete(CONTACTS_API_URL + '/' + contactId);
+        },
+        generateFakeContacts: function() {
+            return $http.get(CONTACTS_API_URL + '/generate');
         }
     };
 
