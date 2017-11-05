@@ -6,8 +6,6 @@ contactMgmtApp.controller('ContactFormCtrl', ['$scope', '$location', 'contactsRe
             emailAddress: null
         };
 
-        console.log(contactsRepo);
-
         $scope.submitNewContact = function () {
             contactsRepo.createContact($scope.m)
                 .then(function (data) {
