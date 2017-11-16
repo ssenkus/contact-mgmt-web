@@ -20,7 +20,7 @@ config.stopWatchingFileChanges = function () {
 if (config.watchConfigFile) {
     fs.watchFile(configFilePath, (curr, prev) => {
         if (!log) {
-            log = require('../lib/log.js');
+            log = require('./log.js');
         }
         log.info('Configuration file change detected');
         var newConfig = readConfig();

@@ -54,6 +54,7 @@ exports.generateFakeContacts = function (done) {
         lastName: faker.name.lastName(),
         emailAddress: faker.internet.email()
     });
-    exports.create(contact, done);
 
+    exports.create(contact, done);
 };
+

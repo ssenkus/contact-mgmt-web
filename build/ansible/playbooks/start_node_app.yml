@@ -1,0 +1,6 @@
+---
+- hosts: nodeapp
+  become: yes
+  tasks:
+    - name: Start Node.js app.
+      command: "forever start {{ node_apps_location }}/app.js"
