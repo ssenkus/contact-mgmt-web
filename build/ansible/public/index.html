@@ -1,0 +1,65 @@
+<!doctype html>
+<html ng-app="AnsibleApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ansible DevOps Tool</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/styles.css" rel="stylesheet"/>
+    <script src="assets/js/app/vendor/angular.js"></script>
+    <script src="assets/js/app/vendor/angular-ui-router.js"></script>
+    <script src="assets/js/app/vendor/lodash.min.js"></script>
+    <script src="assets/js/app/vendor/socket.io.min.js"></script>
+    <script src="assets/js/app/vendor/ansi_up.js"></script>
+
+    <script src="assets/js/app/modules/ansibleApp.js"></script>
+
+    <script src="assets/js/app/config/config.js"></script>
+    <script src="assets/js/app/config/states.js"></script>
+
+    <script src="assets/js/app/services/inventoryRepository.js"></script>
+    <script src="assets/js/app/services/playbooksRepository.js"></script>
+    <script src="assets/js/app/services/mongoRepository.js"></script>
+    <script src="assets/js/app/services/profileRepository.js"></script>
+    <script src="assets/js/app/services/dialogManager.js"></script>
+    <script src="assets/js/app/services/socketHandler.js"></script>
+
+    <script src="assets/js/app/directives/pageDisplayManager.js"></script>
+
+    <script src="assets/js/app/controllers/mainCtrl.js"></script>
+    <script src="assets/js/app/controllers/adhocCommandCtrl.js"></script>
+</head>
+
+<body ng-class="bodyClasses()" page-display-manager>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{ title }}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a ui-sref="data-commands">Data Commands</a>
+                </li>
+                <li>
+                    <a ui-sref="adhoc-command">Ad Hoc Command</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div ui-view></div>
+</div>
+</body>
+
+</html>

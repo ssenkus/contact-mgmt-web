@@ -1,0 +1,8 @@
+---
+- name: Install Siege
+  hosts: servers
+  gather_facts: yes
+  tasks:
+  - name: Install siege via apt
+    apt: name=siege state=present
+

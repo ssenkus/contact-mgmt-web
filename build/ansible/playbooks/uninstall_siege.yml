@@ -1,0 +1,8 @@
+---
+- name: Uninstall Siege
+  hosts: servers
+  gather_facts: yes
+  tasks:
+  - name: Remove siege via apt
+    apt: name=siege state=absent
+

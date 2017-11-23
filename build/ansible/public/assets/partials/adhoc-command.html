@@ -1,0 +1,7 @@
+<div ng-init="ctrl.initialize()">
+    <h1>Ad Hoc Commands</h1>
+    <ul>
+        <li ng-repeat="playbookFile in ctrl.playbookFilesList"><a ng-click="ctrl.getPlaybookFile(playbookFile)">{{ playbookFile }}</a></li>
+    </ul>
+</div>
+<pre ng-bind-html="ctrl.playbookFileRaw"></pre>
