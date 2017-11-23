@@ -1,0 +1,8 @@
+---
+- name: Take down Steve's website
+  hosts: servers
+  gather_facts: yes
+  tasks:
+  - name: Run siege with 50 simulated users
+    command: siege -d1 -c50 -r10 http://www.steven-senkus.com
+

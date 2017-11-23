@@ -1,0 +1,56 @@
+   <div class="row" style="padding-top: 20px"  ng-init="ctrl.initialize()" >
+        <div class="col-sm-5 col-md-4 col-lg-3">
+            <h2>Demos</h2>
+            <div ng-repeat="(task_name,task) in ctrl.tasks">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{task_name}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <a class="btn btn-success action-button" ng-repeat="(name, playbooks) in task"
+                           ng-mouseover="ctrl.hoverOverTask(playbooks)" ng-mouseout="ctrl.hoverOutTask()"
+                           ng-click="ctrl.action(name, playbooks)" ng-disabled="ctrl.actionClicked" ng-bind="name"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-7 col-md-8 col-lg-9">
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <h2>Playbooks to execute:</h2>
+                <pre id="playbooks_list">{{ ctrl.pbs }}</pre>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <form>
+                    <div class="form-group">
+                        <div class="inventory">
+                            <label for="inventory">Environment</label>
+                            <select id="inventory" class="form-control" ng-options="item for item in ctrl.inventories"
+                                    ng-model="ctrl.inventory" ng-change="ctrl.getInventoryFile()"></select>
+                        </div>
+                    </div>
+                </form>
+                <pre id="inventoryFile" ng-bind="ctrl.selectedInventoryFile"></pre>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h2>Playbooks output:</h2>
+                <div class="form-group">
+                    <label for="scroll_playbook_output" >Scroll Output</label>
+                    <input id="scroll_playbook_output" type="checkbox" ng-checked="ctrl.outputScrollEnabled"
+                           ng-model="ctrl.outputScrollEnabled"/>
+
+                </div>
+                <div class="form-group">
+                    <div class="debug">
+                        <label for="debug">Debug</label>
+                        <input id="debug" type="checkbox" ng-checked="ctrl.debug" ng-model="ctrl.debug"/>
+                    </div>
+                </div>
+                <pre class="command_output" ng-bind-html="ctrl.command_output"></pre>
+            </div>
+        </div>
+
+    </div>

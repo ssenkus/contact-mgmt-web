@@ -1,0 +1,26 @@
+{
+	"inventories": [
+		"test1",
+		"test2",
+		"PRODUCTION",
+		"digitalocean",
+		"aws",
+		"azure"
+	],
+	"tasks": {
+		"Pings": {
+			"Ping": ["ping"],
+			"Win Ping": ["win_ping"]
+		},
+		"Node App": {
+			"Install & Start": ["install_node_app"],
+			"Start": ["start_node_app"],
+			"Stop": ["stop_node_app"]
+		},
+		"Siege": {
+			"Install": ["install_siege"],
+			"Uninstall": ["uninstall_siege"],
+			"Attack": ["attack"]
+		}
+	}
+}

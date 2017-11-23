@@ -1,0 +1,25 @@
+<div ng-controller="ContactListCtrl" ng-init="initialize()">
+    <h1>Contacts</h1>
+    <div class=" pull-right" style="margin: 20px;">
+        <button class="btn btn-info" ng-click="createNewContact()">Create new contact</button>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="contact in m.contacts">
+            <td>{{contact.firstName}}</td>
+            <td>{{contact.lastName}}</td>
+            <td>{{contact.emailAddress}}</td>
+            <td>
+                <button class="btn btn-warning" ng-click="editContact(contact)">Edit</button>
+                <button class="btn btn-danger" ng-click="deleteContact(contact)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

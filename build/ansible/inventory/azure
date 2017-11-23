@@ -1,0 +1,9 @@
+[servers]
+104.40.29.34
+
+[servers:vars]
+ansible_winrm_transport=ssl
+ansible_winrm_server_cert_validation=ignore
+ansible_connection=winrm
+ansible_ssh_port=5986
+ansible_ssh_user=Administrator
