@@ -5,14 +5,8 @@ let log;
 let config;
 let configFilePath = __dirname + '/' + '/debug.json';
 
-function readConfig() {
-    var fileContents = fs.readFileSync(configFilePath);
-    var result = JSON.parse(fileContents);
-    return result;
-}
-
 config = readConfig();
-config.stopWatchingFileChanges = function () {
+config.stopWatchingFileChanges = () => {
     if (!config.watchConfigFile) return;
     fs.unwatchFile(configFilePath);
 };
@@ -26,6 +20,12 @@ if (config.watchConfigFile) {
         var newConfig = readConfig();
         _.extend(config, newConfig);
     });
+}
+
+function readConfig() {
+    var fileContents = fs.readFileSync(configFilePath);
+    var result = JSON.parse(fileContents);
+    return result;
 }
 
 module.exports = config;
