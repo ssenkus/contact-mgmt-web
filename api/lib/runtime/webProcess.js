@@ -32,12 +32,12 @@ function startServer() {
     var express = require('express');
     var favicon = require('serve-favicon');
     var bodyParser = require('body-parser');
-    // var errorHandler = require('./errorHandler.js');
+    var errorHandler = require('./errorHandler.js');
     var routes = require('../routes/routes.js');
 
     var app = express();
 
-    var appFolder = __dirname + '/../..' + config.appRoot;
+    var appFolder = __dirname + '/../../..' + config.appRoot;
     app.use('/app', express.static(appFolder, {
         index: 'index.html'
     }));
@@ -45,7 +45,7 @@ function startServer() {
 //    app.use(requestDomain);
     app.use(bodyParser.json({limit: '5mb'}));
     routes.configure(app);
- //   app.use(errorHandler.handler);
+   app.use(errorHandler.handler);
 
     server = app.listen(config.port, function () {
         log.info('Express server listening on port ' + config.port);

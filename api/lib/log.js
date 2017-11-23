@@ -33,7 +33,7 @@ exports.verbose = function (message) {
     log(VERBOSE, message);
 };
 
-exports.blankLine = function() {
+exports.blankLine = function () {
     console.log();
 }
 
@@ -44,22 +44,30 @@ exports.csbRequestResponse = function (rawCsbRequest, rawCsbResponse) {
 };
 
 function log(level, message) {
-    if (config.logLevel <= level) {
-        var timestamp = moment().format('MM-DD HH:mm:ss,SSS ');
-        var tag;
+    var timestamp = moment().format('MM-DD HH:mm:ss,SSS ');
+    var tag;
 
-        switch (level) {
-            case VERBOSE: tag = '[V] '; break;
-            case DEBUG:   tag = '[D] '; break;
-            case INFO:    tag = '[I] '; break;
-            case WARN:    tag = '[W] '; break;
-            case ERROR:   tag = '[E] '; break;
-            default:
-                throw new Error('Invalid log level encountered: ' + level);
-        }
-        if (typeof message === 'object') {
-            message = JSON.stringify(message);
-        }
-        console.log(timestamp + tag + message);
+    switch (level) {
+        case VERBOSE:
+            tag = '[V] ';
+            break;
+        case DEBUG:
+            tag = '[D] ';
+            break;
+        case INFO:
+            tag = '[I] ';
+            break;
+        case WARN:
+            tag = '[W] ';
+            break;
+        case ERROR:
+            tag = '[E] ';
+            break;
+        default:
+            throw new Error('Invalid log level encountered: ' + level);
     }
+    if (typeof message === 'object') {
+        message = JSON.stringify(message);
+    }
+    console.log(timestamp + tag + message);
 }
