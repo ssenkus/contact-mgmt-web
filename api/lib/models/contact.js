@@ -1,5 +1,3 @@
-
-
 class Contact {
 
     constructor(data) {
