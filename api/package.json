@@ -21,7 +21,7 @@
     "fs": "0.0.1-security",
     "mocha": "^4.0.1",
     "moment": "^2.19.1",
-    "mongodb": "^2.2.33",
+    "mongodb": "^3.6.1",
     "serve-favicon": "^2.4.5",
     "underscore": "^1.8.3"
   }
